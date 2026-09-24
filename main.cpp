@@ -81,5 +81,25 @@ int main() {
     dynArr = nullptr;
     std::cout << "Указатель после удаления установлен в: " << dynArr << "\n";
 
+        // ===================== ЗАДАНИЕ 3 =====================
+    std::cout << "\n=== Задание 3: Безопасный массив ===\n";
+    SafeArray myArr = createArray(5);
+    getElement(myArr, 2) = 999;
+    std::cout << "Попытка записи по неверному индексу 10:\n";
+    getElement(myArr, 10) = 555; 
+    printSafe(myArr);
+    
+    std::cout << "Изменение размера с 5 до 3:\n";
+    myArr = reSizeArray(myArr, 3); 
+    printSafe(myArr);
+
+    std::cout << "Изменение размера с 3 до 7:\n";
+    myArr = reSizeArray(myArr, 7); 
+    printSafe(myArr);
+
+    delete[] myArr.data;
+    myArr.data = nullptr;
+    myArr.size = 0;
+
     return 0;
 }
